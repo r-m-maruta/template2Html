@@ -17,10 +17,12 @@ NULL: 'null';
 BOOLEAN: 'true' | 'false';
 NUMBER: '-'? [0-9]+ ('.' [0-9]+)?;
 STRING: '"' ~["\\\r\n]* '"';
+
 LBRACE: '{';
 RBRACE: '}';
 LBRACKET: '[';
 RBRACKET: ']';
 COLON: ':';
 COMMA: ',';
+
 WS: [ \t\r\n]+ -> skip;

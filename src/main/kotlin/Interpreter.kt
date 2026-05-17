@@ -14,7 +14,6 @@ class Interpreter(val json: JObject) {
             memory[field.name] = field.value
         }
 
-        // divide o template manualmente pelo {{ e }}
         var remaining = template
         while(remaining.isNotEmpty()) {
             val start = remaining.indexOf("{{")
@@ -22,14 +21,11 @@ class Interpreter(val json: JObject) {
                 output.append(remaining)
                 break
             }
-            // TEXT antes do script
             if(start > 0) output.append(remaining.substring(0, start))
 
-            // encontra o fim do script
             val end = remaining.indexOf("}}", start)
             val scriptText = remaining.substring(start + 2, end).trim()
 
-            // processa o script
             val lexer  = ScriptGrammarLexer(CharStreams.fromString(scriptText))
             val parser = ScriptGrammarParser(CommonTokenStream(lexer))
             execute(parser.script().toAST())
@@ -61,7 +57,6 @@ class Interpreter(val json: JObject) {
         }
     }
 
-    // avalia uma expressão e devolve um número
     fun Expression.evaluate(): Double =
         when(this) {
             is Literal -> value.toDouble()
@@ -90,12 +85,11 @@ class Interpreter(val json: JObject) {
         }
     }
 
-    // resolve um valor da memória para String
     fun resolveValue(name: String): String =
         when(val v = memory[name]) {
             is JString -> v.value
             is Number -> if(v.toDouble() == v.toLong().toDouble())
-                v.toLong().toString()  // 400.0 → "400"
+                v.toLong().toString()
             else
                 v.toString()
             is JBoolean -> v.value.toString()
@@ -104,7 +98,6 @@ class Interpreter(val json: JObject) {
             else -> v.toString()
         }
 
-    // resolve um argumento do shortcode
     fun resolveArg(arg: Arg): String = when(arg) {
         is ArgId     -> resolveValue(arg.name)
         is ArgString -> arg.value
