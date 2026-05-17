@@ -16,6 +16,16 @@ dependencies {
     implementation("org.ow2.asm:asm:9.4")
 }
 
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+    from(configurations.runtimeClasspath.get().map {
+        if(it.isDirectory) it else zipTree(it)
+    })
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 kotlin {
     jvmToolchain(25)
 }

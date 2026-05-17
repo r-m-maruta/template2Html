@@ -205,28 +205,5 @@ class Interpreter(val json: JObject) {
         }
     }
 
-    /*fun run(template: TemplateGrammarParser.TemplateContext) {
-        json.fields.forEach { field ->
-            memory[field.name] = field.value
-        }
-
-        template.part().forEach { part ->
-            println("part.text = '${part.text}'")
-            println("scriptContent = ${part.scriptContent()?.text}")
-            println("---")
-            if (part.scriptContent() != null) {
-                val scriptText = part.scriptContent().SCRIPT_TEXT().text
-                val lexer = ScriptGrammarLexer(CharStreams.fromString(scriptText))
-                val parser = ScriptGrammarParser(CommonTokenStream(lexer))
-                val ast = parser.script().toAST()
-                execute(ast)
-            } else {
-                output.append(part.text)
-            }
-        }
-    }*/
-
-
-
 
 }
