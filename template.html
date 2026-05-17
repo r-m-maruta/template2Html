@@ -1,0 +1,32 @@
+{{ largura = 400.0 }}
+{{ metade = largura / 2.0 }}
+
+<html>
+<head>
+    <title>O meu site</title>
+</head>
+<body>
+
+<h1>Bem-vindo ao meu site</h1>
+
+<h2>Imagem principal</h2>
+{{ img src_img largura altura }}
+
+<h2>Versão mais pequena</h2>
+{{ img src_img metade altura }}
+
+<h2>Video</h2>
+{{ video src_video largura altura }}
+
+<h2>Galeria</h2>
+{{ gallery fotos }}
+
+<h2>Estado</h2>
+{{ if ativo }}
+{{ badge "Ativo" "green" }}
+{{ else }}
+{{ badge "Inativo" "red" }}
+{{ end }}
+
+</body>
+</html>

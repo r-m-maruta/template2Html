@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>O meu site</title>
+</head>
+<body>
+
+<h1>Bem-vindo ao meu site</h1>
+
+<h2>Imagem principal</h2>
+<figure>
+    <img src="foto_principal.jpg" width="400" height="JNumber(value=300)">
+</figure>
+
+<h2>Versão mais pequena</h2>
+<figure>
+    <img src="foto_principal.jpg" width="200" height="JNumber(value=300)">
+</figure>
+
+<h2>Video</h2>
+<img src="video_principal.gif" width="400" height="JNumber(value=300)" style="object-fit:cover;">
+
+<h2>Galeria</h2>
+            <div style="overflow:hidden; width:100%; max-width:800px; margin:auto;">
+                <div id="slider" style="display:flex; transition:transform 0.5s ease;">
+                    <img src="foto1.jpg" style="min-width:100%; height:300px; object-fit:cover;">
+<img src="foto2.jpg" style="min-width:100%; height:300px; object-fit:cover;">
+<img src="foto3.jpg" style="min-width:100%; height:300px; object-fit:cover;">
+                </div>
+            </div>
+            <script>
+                var current = 0;
+                var total = 3;
+                setInterval(function() {
+                    current = (current + 1) % total;
+                    document.getElementById('slider').style.transform = 'translateX(-' + (current * 100) + '%)';
+                }, 3000);
+            </script>
+
+<h2>Estado</h2>
+
+<span style="background:green; padding:4px 8px; border-radius:4px; color:white">Ativo</span>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "src_img": "foto_principal.jpg",
+  "src_video": "video_principal.mp4",
+  "altura": 300,
+  "ativo": true,
+  "fotos": [
+    {"src": "foto1.jpg"},
+    {"src": "foto2.jpg"},
+    {"src": "foto3.jpg"}
+  ]
+}

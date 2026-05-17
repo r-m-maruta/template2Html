@@ -1,0 +1,17 @@
+IF=1
+ELSE=2
+END=3
+EQUAL=4
+OPERATORMUL=5
+ADD=6
+MINUS=7
+NUMBER=8
+STRING=9
+ID=10
+WS=11
+'if'=1
+'else'=2
+'end'=3
+'='=4
+'+'=6
+'-'=7
